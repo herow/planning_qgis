@@ -82,7 +82,8 @@ namespace pal
       , repeatDist( 0.0 )
       , alwaysShow( false )
   {
-    assert( finite( lx ) && finite( ly ) );
+    //assert( finite( lx ) && finite( ly ) );
+	 assert( _finite( lx ) && _finite( ly ) );
 
     uid = new char[strlen( geom_id ) +1];
     strcpy( uid, geom_id );
