@@ -17,7 +17,7 @@
      <x>0</x>
      <y>0</y>
      <width>1050</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="mProjectMenu">
@@ -275,6 +275,13 @@
     <addaction name="mActionNodeTool"/>
     <addaction name="mActionRotatePointSymbols"/>
    </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>测试</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+   </widget>
    <addaction name="mProjectMenu"/>
    <addaction name="mEditMenu"/>
    <addaction name="mViewMenu"/>
@@ -284,6 +291,7 @@
    <addaction name="mVectorMenu"/>
    <addaction name="mRasterMenu"/>
    <addaction name="mHelpMenu"/>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="mFileToolBar">
@@ -2281,6 +2289,16 @@ Acts on currently active editable layer</string>
    </property>
    <property name="toolTip">
     <string>New temporary scratch layer</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>栅格运算</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>矢量运算</string>
    </property>
   </action>
  </widget>

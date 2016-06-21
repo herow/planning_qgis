@@ -331,15 +331,16 @@ class QTreeWidgetItem;
   */
 static void setTitleBarText_( QWidget & qgisApp )
 {
-  QString caption = QgisApp::tr( "QGIS " );
+  //QString caption = QgisApp::tr( "QGIS " );
+	QString caption = QgisApp::tr( "planning_gis" );
 
   if ( QString( QGis::QGIS_VERSION ).endsWith( "Master" ) )
   {
-    caption += QString( "%1" ).arg( QGis::QGIS_DEV_VERSION );
+	  caption += QString( "%1" ).arg( QGis::QGIS_DEV_VERSION );
   }
   else
   {
-    caption += QGis::QGIS_VERSION;
+	  caption += QGis::QGIS_VERSION;
   }
 
   if ( QgsProject::instance()->title().isEmpty() )
@@ -529,7 +530,7 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
 
   // load GUI: actions, menus, toolbars
   setupUi( this );
-
+  
   //////////
 
   mSplash->showMessage( tr( "Checking database" ), Qt::AlignHCenter | Qt::AlignBottom );
@@ -613,7 +614,7 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
   updateProjectFromTemplates();
   legendLayerSelectionChanged();
   mSaveRollbackInProgress = false;
-
+  
   // initialize the plugin manager
   mPluginManager = new QgsPluginManager( this, restorePlugins );
 
@@ -684,6 +685,7 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
 
   // set application's caption
   QString caption = tr( "QGIS - %1 ('%2')" ).arg( QGis::QGIS_VERSION ).arg( QGis::QGIS_RELEASE_NAME );
+  //QString caption = "¿ÕÐÄ´å";
   setWindowTitle( caption );
 
   QgsMessageLog::logMessage( tr( "QGIS starting..." ), QString::null, QgsMessageLog::INFO );
@@ -1473,7 +1475,7 @@ void QgisApp::createMenus()
 
   // Get platform for menu layout customization (Gnome, Kde, Mac, Win)
   QDialogButtonBox::ButtonLayout layout =
-    QDialogButtonBox::ButtonLayout( style()->styleHint( QStyle::SH_DialogButtonLayout, 0, this ) );
+	  QDialogButtonBox::ButtonLayout( style()->styleHint( QStyle::SH_DialogButtonLayout, 0, this ) );
 
   // Project Menu
 

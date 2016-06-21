@@ -891,7 +891,7 @@ int main( int argc, char *argv[] )
   {
     //for win and linux we can just automask and png transparency areas will be used
     mypSplash->setMask( myPixmap.mask() );
-    mypSplash->show();
+    //mypSplash->show();
   }
 
   // optionally restore default window state
@@ -930,8 +930,8 @@ int main( int argc, char *argv[] )
   QgsDebugMsg( QString( "Number of files in myFileList: %1" ).arg( myFileList.count() ) );
   for ( QStringList::Iterator myIterator = myFileList.begin(); myIterator != myFileList.end(); ++myIterator )
   {
-    QgsDebugMsg( QString( "Trying to load file : %1" ).arg(( *myIterator ) ) );
-    QString myLayerName = *myIterator;
+	  QgsDebugMsg( QString( "Trying to load file : %1" ).arg(( *myIterator ) ) );
+	  QString myLayerName = *myIterator;
     // don't load anything with a .qgs extension - these are project files
     if ( !myLayerName.contains( ".qgs" ) )
     {

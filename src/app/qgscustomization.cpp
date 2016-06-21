@@ -942,8 +942,10 @@ void QgsCustomization::loadDefault()
   int status = mySettings.value( mStatusPath, QgsCustomization::NotSet ).toInt();
   QgsDebugMsg( "Status path = " + mStatusPath );
   QgsDebugMsg( QString( "status = %1" ).arg( status ) );
-  if ( status == QgsCustomization::User || status == QgsCustomization::Default )
-    return;
+
+  //无论为QgsCustomization::NotSet || QgsCustomization::User || status == QgsCustomization::Default都去读取/resources/customization.ini从而实现定制界面
+  //if ( status == QgsCustomization::User || status == QgsCustomization::Default )
+  //  return;
 
   // Look for default
   QString path =  QgsApplication::pkgDataPath() +  "/resources/customization.ini";
