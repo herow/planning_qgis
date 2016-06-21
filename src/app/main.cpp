@@ -638,9 +638,10 @@ int main( int argc, char *argv[] )
   QgsApplication myApp( argc, argv, myUseGuiFlag, configpath );
 
 // (if Windows/Mac, use icon from resource)
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-  myApp.setWindowIcon( QIcon( QgsApplication::iconsPath() + "qgis-icon-60x60.png" ) );
-#endif
+//#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+//  myApp.setWindowIcon( QIcon( QgsApplication::iconsPath() + "qgis-icon-60x60.png" ) );
+//#endif
+  myApp.setWindowIcon( QIcon( QgsApplication::iconsPath() + "new_desktop.ico" ) );
 
   //
   // Set up the QSettings environment must be done after qapp is created
