@@ -1269,6 +1269,9 @@ class APP_EXPORT QgisApp : public QMainWindow, private Ui::MainWindow
     */
     void layerSavedAs( QgsMapLayer* l, QString path );
 
+	//void planning();
+
+
   private:
     /** This method will open a dialog so the user can select GDAL sublayers to load
      * @returns true if any items were loaded

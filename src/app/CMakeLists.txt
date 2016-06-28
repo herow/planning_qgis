@@ -155,6 +155,17 @@ SET(QGIS_APP_SRCS
   pluginmanager/qgspluginitemdelegate.cpp
 
   qgsnewspatialitelayerdialog.cpp
+
+  planning/qgsdevelopindexdialog.cpp
+  planning/qgsdirectionpage.cpp
+  planning/qgsecologicalindexdialog.cpp
+  planning/qgsecologicalrankdialog.cpp
+  planning/qgsindexbasedialog.cpp
+  planning/qgsintroductionpage.cpp
+  planning/qgspatternpage.cpp
+  planning/qgsplanningpage.cpp
+  planning/qgsplanningwizard.cpp
+  planning/qgsrankbase.cpp
 )
 
 SET (QGIS_APP_MOC_HDRS
@@ -292,6 +303,17 @@ SET (QGIS_APP_MOC_HDRS
   pluginmanager/qgspluginitemdelegate.h
 
   qgsnewspatialitelayerdialog.h
+
+  planning/qgsdevelopindexdialog.h
+  planning/qgsdirectionpage.h
+  planning/qgsecologicalindexdialog.h
+  planning/qgsecologicalrankdialog.h
+  planning/qgsindexbasedialog.h
+  planning/qgsintroductionpage.h
+  planning/qgspatternpage.h
+  planning/qgsplanningpage.h
+  planning/qgsplanningwizard.h
+  planning/qgsrankbase.h
   )
 
 SET (WITH_QWTPOLAR TRUE CACHE BOOL "Determines whether QwtPolar should be built")
@@ -465,7 +487,7 @@ IF(PEDANTIC)
 ENDIF(PEDANTIC)
 
 INCLUDE_DIRECTORIES(
-  ${CMAKE_CURRENT_SOURCE_DIR} composer legend pluginmanager
+  ${CMAKE_CURRENT_SOURCE_DIR} composer legend pluginmanager planning
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}/../ui
   ${QWT_INCLUDE_DIR}

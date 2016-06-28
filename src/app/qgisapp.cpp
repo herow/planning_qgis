@@ -216,6 +216,9 @@
 #include "qgsosmimportdialog.h"
 #include "qgsosmexportdialog.h"
 
+#include "qgsplanningwizard.h"
+
+
 #ifdef ENABLE_MODELTEST
 #include "modeltest.h"
 #endif
@@ -684,8 +687,8 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
   connect( QgsMapLayerActionRegistry::instance(), SIGNAL( changed() ), this, SLOT( refreshActionFeatureAction() ) );
 
   // set application's caption
-  QString caption = tr( "QGIS - %1 ('%2')" ).arg( QGis::QGIS_VERSION ).arg( QGis::QGIS_RELEASE_NAME );
-  //QString caption = "空心村";
+  //QString caption = tr( "QGIS - %1 ('%2')" ).arg( QGis::QGIS_VERSION ).arg( QGis::QGIS_RELEASE_NAME );
+  QString caption = tr( "gis_planning - %1 ('%2')" ).arg( QGis::QGIS_VERSION ).arg( QGis::QGIS_RELEASE_NAME );
   setWindowTitle( caption );
 
   QgsMessageLog::logMessage( tr( "QGIS starting..." ), QString::null, QgsMessageLog::INFO );
@@ -1235,6 +1238,9 @@ void QgisApp::createActions()
   connect( mActionConfigureShortcuts, SIGNAL( triggered() ), this, SLOT( configureShortcuts() ) );
   connect( mActionStyleManagerV2, SIGNAL( triggered() ), this, SLOT( showStyleManagerV2() ) );
   connect( mActionCustomization, SIGNAL( triggered() ), this, SLOT( customize() ) );
+
+  //整治规划
+  connect( mActionPlanning, SIGNAL( triggered() ), this, SLOT( planning() ) );
 
 #ifdef Q_OS_MAC
   // Window Menu Items
@@ -10563,6 +10569,12 @@ LONG WINAPI QgisApp::qgisCrashDump( struct _EXCEPTION_POINTERS *ExceptionInfo )
   QMessageBox::critical( 0, QObject::tr( "Crash dumped" ), msg );
 
   return EXCEPTION_EXECUTE_HANDLER;
+}
+
+void QgisApp::planning()
+{
+	QgsPlanningWizard * wizard = new QgsPlanningWizard();
+	wizard->show();
 }
 #endif
 

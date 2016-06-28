@@ -275,12 +275,18 @@
     <addaction name="mActionNodeTool"/>
     <addaction name="mActionRotatePointSymbols"/>
    </widget>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="mPatternDBMenu">
     <property name="title">
-     <string>测试</string>
+     <string>模式库</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
+    <addaction name="mActionCaseDB"/>
+    <addaction name="mActionPolicyDB"/>
+   </widget>
+   <widget class="QMenu" name="mPlanningMenu">
+    <property name="title">
+     <string>整治规划</string>
+    </property>
+    <addaction name="mActionPlanning"/>
    </widget>
    <addaction name="mProjectMenu"/>
    <addaction name="mEditMenu"/>
@@ -290,8 +296,9 @@
    <addaction name="mPluginMenu"/>
    <addaction name="mVectorMenu"/>
    <addaction name="mRasterMenu"/>
+   <addaction name="mPatternDBMenu"/>
+   <addaction name="mPlanningMenu"/>
    <addaction name="mHelpMenu"/>
-   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="mFileToolBar">
@@ -2291,14 +2298,19 @@ Acts on currently active editable layer</string>
     <string>New temporary scratch layer</string>
    </property>
   </action>
-  <action name="action">
+  <action name="mActionCaseDB">
    <property name="text">
-    <string>栅格运算</string>
+    <string>案例库</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="mActionPolicyDB">
    <property name="text">
-    <string>矢量运算</string>
+    <string>策略库</string>
+   </property>
+  </action>
+  <action name="mActionPlanning">
+   <property name="text">
+    <string>整治规划</string>
    </property>
   </action>
  </widget>
