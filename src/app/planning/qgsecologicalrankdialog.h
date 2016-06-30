@@ -1,8 +1,8 @@
 #ifndef QGSECOLOGICALRANKDIALOG_H
 #define QGSECOLOGICALRANKDIALOG_H
 
-#include "qgsrankbase.h"
-class QgsEcologicalRankDialog : public QgsRankBase
+#include "qgsrankbasedialog.h"
+class QgsEcologicalRankDialog : public QgsRankBaseDialog
 {
 public:
     QgsEcologicalRankDialog();

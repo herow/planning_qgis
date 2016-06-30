@@ -12,7 +12,8 @@ class QgsDirectionPage : public QWizardPage,private Ui::QgsDirection
 public:
     explicit QgsDirectionPage();
 private slots:
-    void developFactors();
+    void developIndex();
+	void developRank();
 };
 
 #endif // QGSDIRECTIONPAGE_H

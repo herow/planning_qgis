@@ -1221,6 +1221,9 @@ class APP_EXPORT QgisApp : public QMainWindow, private Ui::MainWindow
     /** Make the user feel dizzy */
     void dizzy();
 
+	void planning();
+	void excuteDB();
+
   signals:
     /** emitted when a key is pressed and we want non widget sublasses to be able
       to pick up on this (e.g. maplayer) */
@@ -1269,7 +1272,7 @@ class APP_EXPORT QgisApp : public QMainWindow, private Ui::MainWindow
     */
     void layerSavedAs( QgsMapLayer* l, QString path );
 
-	//void planning();
+	
 
 
   private:

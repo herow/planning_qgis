@@ -277,10 +277,9 @@
    </widget>
    <widget class="QMenu" name="mPatternDBMenu">
     <property name="title">
-     <string>模式库</string>
+     <string>整治模式库</string>
     </property>
-    <addaction name="mActionCaseDB"/>
-    <addaction name="mActionPolicyDB"/>
+    <addaction name="mActionDB"/>
    </widget>
    <widget class="QMenu" name="mPlanningMenu">
     <property name="title">
@@ -2298,9 +2297,9 @@ Acts on currently active editable layer</string>
     <string>New temporary scratch layer</string>
    </property>
   </action>
-  <action name="mActionCaseDB">
+  <action name="mActionDB">
    <property name="text">
-    <string>案例库</string>
+    <string>整治模式库</string>
    </property>
   </action>
   <action name="mActionPolicyDB">

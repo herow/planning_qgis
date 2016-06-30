@@ -157,6 +157,7 @@ SET(QGIS_APP_SRCS
   qgsnewspatialitelayerdialog.cpp
 
   planning/qgsdevelopindexdialog.cpp
+  planning/qgsdeveloprankdialog.cpp
   planning/qgsdirectionpage.cpp
   planning/qgsecologicalindexdialog.cpp
   planning/qgsecologicalrankdialog.cpp
@@ -165,7 +166,8 @@ SET(QGIS_APP_SRCS
   planning/qgspatternpage.cpp
   planning/qgsplanningpage.cpp
   planning/qgsplanningwizard.cpp
-  planning/qgsrankbase.cpp
+  planning/qgsrankbasedialog.cpp
+
 )
 
 SET (QGIS_APP_MOC_HDRS
@@ -305,6 +307,7 @@ SET (QGIS_APP_MOC_HDRS
   qgsnewspatialitelayerdialog.h
 
   planning/qgsdevelopindexdialog.h
+  planning/qgsdeveloprankdialog.h
   planning/qgsdirectionpage.h
   planning/qgsecologicalindexdialog.h
   planning/qgsecologicalrankdialog.h
@@ -313,7 +316,7 @@ SET (QGIS_APP_MOC_HDRS
   planning/qgspatternpage.h
   planning/qgsplanningpage.h
   planning/qgsplanningwizard.h
-  planning/qgsrankbase.h
+  planning/qgsrankbasedialog.h
   )
 
 SET (WITH_QWTPOLAR TRUE CACHE BOOL "Determines whether QwtPolar should be built")

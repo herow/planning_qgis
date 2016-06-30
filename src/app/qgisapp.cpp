@@ -1241,6 +1241,7 @@ void QgisApp::createActions()
 
   //整治规划
   connect( mActionPlanning, SIGNAL( triggered() ), this, SLOT( planning() ) );
+  connect( mActionDB,SIGNAL( triggered() ), this, SLOT( excuteDB() ));
 
 #ifdef Q_OS_MAC
   // Window Menu Items
@@ -10575,6 +10576,11 @@ void QgisApp::planning()
 {
 	QgsPlanningWizard * wizard = new QgsPlanningWizard();
 	wizard->show();
+}
+
+void QgisApp::excuteDB()
+{
+	QProcess::startDetached("E:\\code\\db_planning\\src\\release\\sqlitebrowser.exe",QStringList());
 }
 #endif
 

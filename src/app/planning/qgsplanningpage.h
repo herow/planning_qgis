@@ -12,6 +12,7 @@ public:
     QgsPlanningPage();
 private slots:
     void ecologicalIndex();
+	void ecologicalRank();
 };
 
 #endif // QGSPLANNINGPAGE_H
