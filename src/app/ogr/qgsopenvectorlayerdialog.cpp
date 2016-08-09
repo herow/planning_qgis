@@ -27,6 +27,7 @@
 #include "qgsvectordataprovider.h"
 
 #include <ogr_api.h>
+#include "qgsapplication.h"
 #include "qgsproviderregistry.h"
 #include "qgsnewogrconnection.h"
 #include "qgsogrhelperfunctions.h"
@@ -36,7 +37,7 @@ QgsOpenVectorLayerDialog::QgsOpenVectorLayerDialog( QWidget* parent, Qt::WindowF
     : QDialog( parent, fl )
 {
   setupUi( this );
-
+  setWindowIcon( QIcon( QgsApplication::iconsPath() + "qgis-icon-60x60.png" ) );
   cmbDatabaseTypes->blockSignals( true );
   cmbConnections->blockSignals( true );
   radioSrcFile->setChecked( true );

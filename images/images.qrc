@@ -477,6 +477,8 @@
         <file>themes/default/bubble.svg</file>
         <file>themes/default/mIconClear.png</file>
         <file>flags/zh.png</file>
+        <file>icons/qgis-icon.png</file>
+        <file>icons/qgis-icon-60x60.png</file>
     </qresource>
     <qresource prefix="/images/tips">
         <file alias="symbol_levels.png">qgis_tips/symbol_levels.png</file>

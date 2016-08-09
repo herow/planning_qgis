@@ -374,7 +374,7 @@ void QgsIdentifyResultsDialog::addFeature( QgsMapToolIdentify::IdentifyResult re
 
 void QgsIdentifyResultsDialog::addFeature( QgsVectorLayer *vlayer, const QgsFeature &f, const QMap<QString, QString> &derivedAttributes )
 {
-  QTreeWidgetItem *layItem = layerItem( vlayer );
+	QTreeWidgetItem *layItem = layerItem( vlayer );
 
   if ( layItem == 0 )
   {

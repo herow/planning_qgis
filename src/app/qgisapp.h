@@ -100,6 +100,8 @@ class QgsTileScaleWidget;
 #include "qgssnappingdialog.h"
 #include "qgspluginmanager.h"
 #include "qgsmessagebar.h"
+#include "youxuan/youxuandockwidget.h"
+#include "planning/qgsplanningtoolbox.h"
 
 #include "ui_qgisapp.h"
 
@@ -1223,6 +1225,8 @@ class APP_EXPORT QgisApp : public QMainWindow, private Ui::MainWindow
 
 	void planning();
 	void excuteDB();
+	void showPlanningToolBox();
+	void showYouXuanToolBox();
 
   signals:
     /** emitted when a key is pressed and we want non widget sublasses to be able
@@ -1631,6 +1635,9 @@ class APP_EXPORT QgisApp : public QMainWindow, private Ui::MainWindow
     QList<QgsDecorationItem*> mDecorationItems;
 
     int mLastComposerId;
+
+	QgsPlanningToolBox *mPlanningToolBox;
+	YouXuanDockWidget *mYouXuanToolBox;
 
 #ifdef Q_OS_WIN
     int mSkipNextContextMenuEvent; // ugly hack

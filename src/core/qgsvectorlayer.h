@@ -288,17 +288,17 @@ protected:
  * Examples are http://foobar/wfs or /foo/bar/file.gml
  *
  * If a GML2 file path is provided the driver will attempt to read the schema from a
- * file in the same directory with the same basename + “.xsd”. This xsd file must be
+ * file in the same directory with the same basename + �?xsd�? This xsd file must be
  * in the same format as a WFS describe feature type response. If no xsd file is provide
  * then the driver will attempt to guess the attribute types from the file.
  *
- * In the case of a HTTP URL the ‘FILTER’ query string parameter can be used to filter
- * the WFS feature type. The ‘FILTER’ key value can either be a QGIS expression
+ * In the case of a HTTP URL the ‘FILTER�?query string parameter can be used to filter
+ * the WFS feature type. The ‘FILTER�?key value can either be a QGIS expression
  * or an OGC XML filter. If the value is set to a QGIS expression the driver will
  * turn it into OGC XML filter before passing it to the WFS server. Beware the
- * QGIS expression filter only supports” =, !=, <, >, <=, >=, AND, OR, NOT, LIKE, IS NULL”
- * attribute operators, “BBOX, Disjoint, Intersects, Touches, Crosses, Contains, Overlaps, Within”
- * spatial binary operators and the QGIS local “geomFromWKT, geomFromGML”
+ * QGIS expression filter only supports�?=, !=, <, >, <=, >=, AND, OR, NOT, LIKE, IS NULL�?
+ * attribute operators, “BBOX, Disjoint, Intersects, Touches, Crosses, Contains, Overlaps, Within�?
+ * spatial binary operators and the QGIS local “geomFromWKT, geomFromGML�?
  * geometry constructor functions.
  *
  * Also note:

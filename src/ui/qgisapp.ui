@@ -286,6 +286,18 @@
      <string>整治规划</string>
     </property>
     <addaction name="mActionPlanning"/>
+    <addaction name="mActionPlanningBox"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>整治模式优选</string>
+    </property>
+    <addaction name="mActionYouxuan"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>微观形态设计</string>
+    </property>
    </widget>
    <addaction name="mProjectMenu"/>
    <addaction name="mEditMenu"/>
@@ -297,6 +309,8 @@
    <addaction name="mRasterMenu"/>
    <addaction name="mPatternDBMenu"/>
    <addaction name="mPlanningMenu"/>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
    <addaction name="mHelpMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -2310,6 +2324,28 @@ Acts on currently active editable layer</string>
   <action name="mActionPlanning">
    <property name="text">
     <string>整治规划</string>
+   </property>
+  </action>
+  <action name="mActionPlanningBox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>整治规划工具箱</string>
+   </property>
+  </action>
+  <action name="mActionYouxuan">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>整治模式优选</string>
    </property>
   </action>
  </widget>

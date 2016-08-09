@@ -1,4 +1,4 @@
-/***************************************************************************
+﻿/***************************************************************************
   qgisapp.cpp  -  description
   -------------------
 
@@ -61,6 +61,7 @@
 #include <QTcpSocket>
 #include <QTextStream>
 #include <QtGlobal>
+#include <QTextCodec>
 #include <QTimer>
 #include <QToolButton>
 #include <QUuid>
@@ -335,17 +336,17 @@ class QTreeWidgetItem;
 static void setTitleBarText_( QWidget & qgisApp )
 {
   //QString caption = QgisApp::tr( "QGIS " );
-	QString caption = QgisApp::tr( "planning_gis" );
+	
 
-  if ( QString( QGis::QGIS_VERSION ).endsWith( "Master" ) )
-  {
-	  caption += QString( "%1" ).arg( QGis::QGIS_DEV_VERSION );
-  }
-  else
-  {
-	  caption += QGis::QGIS_VERSION;
-  }
-
+  //if ( QString( QGis::QGIS_VERSION ).endsWith( "Master" ) )
+  //{
+	 // caption += QString( "%1" ).arg( QGis::QGIS_DEV_VERSION );
+  //}
+  //else
+  //{
+	 // caption += QGis::QGIS_VERSION;
+  //}
+  QString caption = QString::fromLocal8Bit("空心村辅助规划编制系统");
   if ( QgsProject::instance()->title().isEmpty() )
   {
     if ( QgsProject::instance()->fileName().isEmpty() )
@@ -627,6 +628,15 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
   mSnappingDialog = new QgsSnappingDialog( this, mMapCanvas );
   mSnappingDialog->setObjectName( "SnappingOption" );
 
+  mPlanningToolBox = new QgsPlanningToolBox();
+  addDockWidget( Qt::RightDockWidgetArea, mPlanningToolBox );
+  mPlanningToolBox->hide();
+
+  mYouXuanToolBox = new YouXuanDockWidget();
+  addDockWidget( Qt::RightDockWidgetArea, mYouXuanToolBox );
+  mYouXuanToolBox->hide();
+
+
   mBrowserWidget = new QgsBrowserDockWidget( tr( "Browser" ), this );
   mBrowserWidget->setObjectName( "Browser" );
   addDockWidget( Qt::LeftDockWidgetArea, mBrowserWidget );
@@ -834,11 +844,11 @@ QgisApp::QgisApp( QSplashScreen *splash, bool restorePlugins, QWidget * parent, 
   qApp->processEvents();
 
   fileNewBlank(); // prepare empty project, also skips any default templates from loading
-
+  
   // request notification of FileOpen events (double clicking a file icon in Mac OS X Finder)
   // should come after fileNewBlank to ensure project is properly set up to receive any data source files
   QgsApplication::setFileOpenEventReceiver( this );
-
+  
 #ifdef ANDROID
   toggleFullScreen();
 #endif
@@ -1239,9 +1249,11 @@ void QgisApp::createActions()
   connect( mActionStyleManagerV2, SIGNAL( triggered() ), this, SLOT( showStyleManagerV2() ) );
   connect( mActionCustomization, SIGNAL( triggered() ), this, SLOT( customize() ) );
 
-  //���ι滮
+  //整治规划
   connect( mActionPlanning, SIGNAL( triggered() ), this, SLOT( planning() ) );
+  connect( mActionPlanningBox, SIGNAL( triggered() ), this, SLOT( showPlanningToolBox() ) );
   connect( mActionDB,SIGNAL( triggered() ), this, SLOT( excuteDB() ));
+  connect( mActionYouxuan, SIGNAL(triggered()), this, SLOT( showYouXuanToolBox() ) );
 
 #ifdef Q_OS_MAC
   // Window Menu Items
@@ -2858,12 +2870,12 @@ void QgisApp::addVectorLayer()
 
   if ( ovl->exec() )
   {
-    QStringList selectedSources = ovl->dataSources();
-    QString enc = ovl->encoding();
-    if ( !selectedSources.isEmpty() )
-    {
-      addVectorLayers( selectedSources, enc, ovl->dataSourceType() );
-    }
+	  QStringList selectedSources = ovl->dataSources();
+	  QString enc = ovl->encoding();
+	  if ( !selectedSources.isEmpty() )
+	  {
+		  addVectorLayers( selectedSources, enc, ovl->dataSourceType() );
+	  }
   }
 
   mMapCanvas->freeze( false );
@@ -3941,15 +3953,15 @@ void QgisApp::showRasterCalculator()
     //extent and output resolution will come later...
     QgsRasterCalculator rc( d.formulaString(), d.outputFile(), d.outputFormat(), d.outputRectangle(), d.numberOfColumns(), d.numberOfRows(), d.rasterEntries() );
 
-    QProgressDialog p( tr( "Calculating..." ), tr( "Abort..." ), 0, 0 );
-    p.setWindowModality( Qt::WindowModal );
-    if ( rc.processCalculation( &p ) == 0 )
-    {
-      if ( d.addLayerToProject() )
-      {
-        addRasterLayer( d.outputFile(), QFileInfo( d.outputFile() ).baseName() );
-      }
-    }
+	QProgressDialog p( tr( "Calculating..." ), tr( "Abort..." ), 0, 0 );
+	p.setWindowModality( Qt::WindowModal );
+	if ( rc.processCalculation( &p ) == 0 )
+	{
+		if ( d.addLayerToProject() )
+		{
+			addRasterLayer( d.outputFile(), QFileInfo( d.outputFile() ).baseName() );
+		}
+	}
   }
 }
 
@@ -5257,45 +5269,45 @@ void QgisApp::saveAsVectorFileGeneral( QgsVectorLayer* vlayer, bool symbologyOpt
     }
 
     // ok if the file existed it should be deleted now so we can continue...
-    QApplication::setOverrideCursor( Qt::WaitCursor );
+	QApplication::setOverrideCursor( Qt::WaitCursor );
 
-    QgsVectorFileWriter::WriterError error;
-    QString errorMessage;
-    QString newFilename;
-    QgsRectangle filterExtent = dialog->filterExtent();
-    error = QgsVectorFileWriter::writeAsVectorFormat(
-              vlayer, vectorFilename, encoding, ct, format,
-              dialog->onlySelected(),
-              &errorMessage,
-              datasourceOptions, dialog->layerOptions(),
-              dialog->skipAttributeCreation(),
-              &newFilename,
-              ( QgsVectorFileWriter::SymbologyExport )( dialog->symbologyExport() ),
-              dialog->scaleDenominator(),
-              dialog->hasFilterExtent() ? &filterExtent : 0 );
+	QgsVectorFileWriter::WriterError error;
+	QString errorMessage;
+	QString newFilename;
+	QgsRectangle filterExtent = dialog->filterExtent();
+	error = QgsVectorFileWriter::writeAsVectorFormat(
+		vlayer, vectorFilename, encoding, ct, format,
+		dialog->onlySelected(),
+		&errorMessage,
+		datasourceOptions, dialog->layerOptions(),
+		dialog->skipAttributeCreation(),
+		&newFilename,
+		( QgsVectorFileWriter::SymbologyExport )( dialog->symbologyExport() ),
+		dialog->scaleDenominator(),
+		dialog->hasFilterExtent() ? &filterExtent : 0 );
 
-    delete ct;
+	delete ct;
 
-    QApplication::restoreOverrideCursor();
+	QApplication::restoreOverrideCursor();
 
-    if ( error == QgsVectorFileWriter::NoError )
-    {
-      if ( dialog->addToCanvas() )
-      {
-        addVectorLayers( QStringList( newFilename ), encoding, "file" );
-      }
-      emit layerSavedAs( vlayer, vectorFilename );
-      messageBar()->pushMessage( tr( "Saving done" ),
-                                 tr( "Export to vector file has been completed" ),
-                                 QgsMessageBar::INFO, messageTimeout() );
-    }
-    else
-    {
-      QgsMessageViewer *m = new QgsMessageViewer( 0 );
-      m->setWindowTitle( tr( "Save error" ) );
-      m->setMessageAsPlainText( tr( "Export to vector file failed.\nError: %1" ).arg( errorMessage ) );
-      m->exec();
-    }
+	if ( error == QgsVectorFileWriter::NoError )
+	{
+		if ( dialog->addToCanvas() )
+		{
+			addVectorLayers( QStringList( newFilename ), encoding, "file" );
+		}
+		emit layerSavedAs( vlayer, vectorFilename );
+		messageBar()->pushMessage( tr( "Saving done" ),
+			tr( "Export to vector file has been completed" ),
+			QgsMessageBar::INFO, messageTimeout() );
+	}
+	else
+	{
+		QgsMessageViewer *m = new QgsMessageViewer( 0 );
+		m->setWindowTitle( tr( "Save error" ) );
+		m->setMessageAsPlainText( tr( "Export to vector file failed.\nError: %1" ).arg( errorMessage ) );
+		m->exec();
+	}
   }
 
   delete dialog;
@@ -10401,6 +10413,8 @@ void QgisApp::namUpdate()
 void QgisApp::completeInitialization()
 {
   emit initializationCompleted();
+  //mMapCanvas->zoomToFullExtent();
+  addProject(QString::fromLocal8Bit("E:\\空心村\\空心村2.qgs"));
 }
 
 void QgisApp::toolButtonActionTriggered( QAction *action )
@@ -10572,15 +10586,37 @@ LONG WINAPI QgisApp::qgisCrashDump( struct _EXCEPTION_POINTERS *ExceptionInfo )
   return EXCEPTION_EXECUTE_HANDLER;
 }
 
-void QgisApp::planning()
-{
-	QgsPlanningWizard * wizard = new QgsPlanningWizard();
-	wizard->show();
-}
-
 void QgisApp::excuteDB()
 {
 	QProcess::startDetached("E:\\code\\db_planning\\src\\release\\sqlitebrowser.exe",QStringList());
 }
 #endif
 
+void QgisApp::planning()
+{
+	QgsPlanningWizard * wizard = new QgsPlanningWizard();
+	wizard->show();
+}
+
+void QgisApp::showPlanningToolBox()
+{
+	if (!mActionPlanningBox->isChecked())
+	{
+		mPlanningToolBox->hide();
+	}
+	else
+	{
+		mPlanningToolBox->show();
+	}
+}
+void QgisApp::showYouXuanToolBox()
+{
+	if (!mActionYouxuan->isChecked())
+	{
+		mYouXuanToolBox->hide();
+	}
+	else
+	{
+		mYouXuanToolBox->show();
+	}
+}

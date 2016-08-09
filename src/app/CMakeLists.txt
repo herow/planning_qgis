@@ -167,6 +167,29 @@ SET(QGIS_APP_SRCS
   planning/qgsplanningpage.cpp
   planning/qgsplanningwizard.cpp
   planning/qgsrankbasedialog.cpp
+  planning/qgsplanningtoolbox.cpp
+  planning/qgssettingwidget.cpp
+  planning/qgsecologicalwizard.cpp
+  planning/qgsfactorsettingpage.cpp
+  planning/qgsfileselectbasewidget.cpp
+  planning/qgsfilesselectwidget.cpp
+  planning/qgsfilesselectpage.cpp
+  planning/qgsrasterreclassify.cpp
+  planning/savewidget.cpp
+  planning/planningdialog.cpp
+
+  youxuan/chubufanganform.cpp
+  youxuan/cunminyijianform.cpp
+  youxuan/diaochaform.cpp
+  youxuan/fangtang.cpp
+  youxuan/finalfanganform.cpp
+  youxuan/imagecollection.cpp
+  youxuan/kongxinstatus.cpp
+  youxuan/teshustatusform.cpp
+  youxuan/wenti_celueform.cpp
+  youxuan/youxuandockwidget.cpp
+  youxuan/youxuanform.cpp
+  youxuan/zhengfuyaoqiuform.cpp
 
 )
 
@@ -317,6 +340,29 @@ SET (QGIS_APP_MOC_HDRS
   planning/qgsplanningpage.h
   planning/qgsplanningwizard.h
   planning/qgsrankbasedialog.h
+  planning/qgsplanningtoolbox.h
+  planning/qgssettingwidget.h
+  planning/qgsecologicalwizard.h
+  planning/qgsfactorsettingpage.h
+  planning/qgsfileselectbasewidget.h
+  planning/qgsfilesselectwidget.h
+  planning/qgsfilesselectpage.h
+  planning/qgsrasterreclassify.h
+  planning/savewidget.h
+  planning/planningdialog.h
+
+  youxuan/chubufanganform.h
+  youxuan/cunminyijianform.h
+  youxuan/diaochaform.h
+  youxuan/fangtang.h
+  youxuan/finalfanganform.h
+  youxuan/imagecollection.h
+  youxuan/kongxinstatus.h
+  youxuan/teshustatusform.h
+  youxuan/wenti_celueform.h
+  youxuan/youxuandockwidget.h
+  youxuan/youxuanform.h
+  youxuan/zhengfuyaoqiuform.h
   )
 
 SET (WITH_QWTPOLAR TRUE CACHE BOOL "Determines whether QwtPolar should be built")

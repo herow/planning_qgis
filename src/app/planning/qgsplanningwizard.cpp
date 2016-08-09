@@ -28,7 +28,7 @@ QgsPlanningWizard::QgsPlanningWizard():
     //---------------------------------------------------
     //设置页面主标题的显示格式
     setTitleFormat(Qt::RichText);
-    //设置子标题显示格式
+    //设置子标题显示格�?
     setSubTitleFormat(Qt::RichText);
 
     //设置两个按钮

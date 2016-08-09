@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QgsPlanningDockWindow</class>
+ <widget class="QDockWidget" name="QgsPlanningDockWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>356</width>
+    <height>404</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>“县-乡镇-村”整治规划体系</string>
+  </property>
+  <widget class="QWidget" name="dockWidgetContents">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QToolBox" name="mPlanningToolBox">
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="mPlanningPage">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>338</width>
+         <height>286</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>整治区片划分</string>
+       </attribute>
+       <widget class="QToolButton" name="mEcologicalToolBtn">
+        <property name="geometry">
+         <rect>
+          <x>41</x>
+          <y>33</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>生态适宜性评价</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="mPlanningToolBtn">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>140</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>整治区片划分</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="mScoreToolBtn">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>90</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>生态适宜性综合得分</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="mDirectionPage">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>98</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>整治方向选择</string>
+       </attribute>
+       <widget class="QToolButton" name="mDirectionToolBtn">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>231</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>村庄布点规划</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="mPatternPage">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>98</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>整治模式优选</string>
+       </attribute>
+       <widget class="QToolButton" name="mPatternToolBtn">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>231</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>整治模式选择</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
